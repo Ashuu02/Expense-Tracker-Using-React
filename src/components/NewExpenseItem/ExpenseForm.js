@@ -7,6 +7,8 @@ function ExpenseForm(props) {
   const [enteredAmount, setAmount] = useState("");
   const [enteredDate, setDate] = useState("");
 
+  const today = new Date().toISOString().split("T")[0];
+
   function TitleChangeHandler(e) {
     setTitle(e.target.value);
   }
@@ -58,7 +60,7 @@ function ExpenseForm(props) {
           <input
             type="date"
             min="2019-01-01"
-            max="2023-12-31"
+            max={today}
             value={enteredDate}
             onChange={DateChangeHandler}
           />
